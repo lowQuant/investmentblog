@@ -1,0 +1,45 @@
+
+/* Style for the card container */
+card {
+    display: flex;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  /* Style for the card on hover */
+  card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  /* Style for the article inside the card */
+  card article {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Style for the article title */
+  card article h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the article meta info */
+  card article .meta {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Style for the article summary */
+  card article .summary {
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the "Read More" link */
+  card article .more {
+    color: #007bff;
+  }

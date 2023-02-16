@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <main><h1>Blog</h1></main>
+    
+
+    <div class="row">
+        <div class="col-md-2">
+            
+            <h2>Categories</h2><br>
+            <ul class="list-group">
+                {% for cat in categories %} 
+                <li class="list-group-item"><a class="more" href="{% url 'category' cat %}">{{cat}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <main>
+                
+                {% for post in posts %}
+                <card>
+                    <article>
+                        <h2><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h2>
+                        {% if user.is_authenticated %}
+                        <p class="meta">Published on {{ post.post_date}} by <b>{{ post.author }}</b> - 
+                            <small><a class="more" href="{% url 'update-post' post.pk %}">Edit</a> </small> - 
+                            <small><a class="more" href="{% url 'delete-post' post.pk %}">Delete</a> </small>
+                        </p>
+                        {% else %}
+                        <p class="meta">Published on {{ post.post_date}} by <b>{{ post.author }}</b></p>
+                        {% endif %}
+                        <p class="summary">{{ post.summary | safe}}<a class="more" href="{% url 'article-detail' post.pk %}">..</a></p>
+                        <div>
+                            <a class="more" href="{% url 'article-detail' post.pk %}">Read More</a>
+                        </div>
+                    </article>
+                </card>
+                <br>
+                {% endfor %}
+            </main>
+        </div>
+    </div>
+</div>
+{% endblock %}

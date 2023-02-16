@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <h1>{{ cat }} Category</h1><br>
+    
+{% for post in category_posts %}
+    <article>
+        <h2><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h2>
+        {% if user.is_authenticated %}
+        <p class="meta">Published on {{ post.post_date}} by <b>{{ post.author }}</b> - 
+            <small><a class="more" href="{% url 'update-post' post.pk %}">Edit</a> </small> - 
+            <small><a class="more" href="{% url 'delete-post' post.pk %}">Delete</a> </small>
+        </p>
+        {% else %}
+        <p class="meta">Published on {{ post.post_date}} by <b>{{ post.author }}</b></p>
+        {% endif %}
+        
+        <p class="summary">{{ post.summary | safe}}<a class="more" href="{% url 'article-detail' post.pk %}">..</a>
+        </p>
+        <div>
+        <a class="more" href="{% url 'article-detail' post.pk %}">Read More</a>
+        </div>
+        <br>
+    </article>
+
+{% endfor %}
+    
+</main>
+    
+{% endblock %}

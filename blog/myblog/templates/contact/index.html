@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+<h1>Contact</h1>
+<br>
+<p>
+You can reach out to me via Linkedin or using the contact form below.
+</p><br>
+
+<form action="https://formsubmit.co/lange.algotrading@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input class="form-control" type="text" name="name" placeholder="Your Name" required>
+    <br>
+    <input class="form-control" type="email" name="email" placeholder="Your E-Mail" required>
+    <br>
+    <textarea class="form-control" name="message" placeholder="Details of your message"></textarea>
+    <br>
+    <button class="btn btn-secondary" type="submit">Send</button>
+</form>
+
+</main>
+
+
+{% endblock %}
