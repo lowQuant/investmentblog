@@ -1,2 +1,0 @@
-user = lowquant
-password = hawk6339
